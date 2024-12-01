@@ -58,7 +58,7 @@ Take a glimpse of the website:
 
 ## Demo Video
 
-Click belo to see how the website works
+Click below to see how the website works
 
 [![Watch the video](https://img.youtube.com/vi/X5mRS33QxJY/0.jpg)](https://www.youtube.com/watch?v=X5mRS33QxJY)
 
