@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Customer details</title>
+    <meta charset="utf-8">
+    <meta name="sathiyanarayanan" content="SIT772">
+    <meta name="description" content="Filling a database">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+        crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <header class="container-fluid bg-dark text-white">
+        <h1 class="p-5 text-center">Bookings.com</h1>
+    </header>
+    <main class="container ">
+        <h3 class="py-4">Customer Details:</h3>
+        <p>Please fill the following details and click Submit to register your details to our database!</p>
+
+        <form action="/submit" name="customer" id="customer" onsubmit="return Validation()" method="post">
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="fname"><strong>First name:</strong></label>
+                <div class="col-md-7">
+                    <input type="text" class="form-control" id="fname" placeholder="Enter your fname..." name="fname">
+                </div>
+                <div id="fnamemsg"></div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="phone"><strong>Last name:</strong></label>
+                <div class="col-md-7">
+                    <input type="text" class="form-control" id="lname" placeholder="Enter your lname..." name="lname">
+                </div>
+                <div id="lnamemsg"></div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="phone"><strong>Phone Number:</strong></label>
+                <div class="col-md-7">
+                    <input type="number" class="form-control" id="phone" placeholder="xxxxxxxxxx" name="phone">
+                </div>
+                <div id="phonemsg"></div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="email"><strong>Email ID:</strong></label>
+                <div class="col-md-7">
+                    <input type="email" class="form-control" id="email" placeholder="something@email.com" name="email">
+                </div>
+                <div id="emailmsg"></div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="ccrd"><strong>Credit card number:</strong></label>
+                <div class="col-md-7">
+                    <input type="number" class="form-control" id="ccrd" placeholder="xxxx xxxxxx xxxxxx" name="ccrd">
+                </div>
+                <div id="ccrdmsg"></div>
+            </div>
+            <div class="row mb-2">
+                <label class="col-md-2 col-form-label" for="cexp"><strong>Credit card Expiry date:</strong></label>
+                <div class="col-md-7">
+                    <input type="date" class="form-control" id="cexp" name="cexp">
+                </div>
+                <div id="cexpmsg"></div>
+            </div>
+            <br>
+            <hr>
+            <div class="row py-4">
+                <div class="col-md-2"></div>
+                <div class="col-md-5 px-5 justify-content-center ">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-md-5 px-5 justify-content-center">
+                    <button type="reset" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <br><br><br>
+
+    <footer class="footer bg-dark text-light text-center py-3 fixed-bottom">
+        2023 Copyright bookings.com
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function Validation() {
+
+            const fname = document.getElementById("fname").value;
+            const fnameMsg = document.getElementById("fnamemsg");
+            const lname = document.getElementById("lname").value;
+            const lnameMsg = document.getElementById("lnamemsg");
+            const phone = document.getElementById("phone").value;
+            const phoneMsg = document.getElementById("phonemsg");
+            const email = document.getElementById("email").value;
+            const emailMsg = document.getElementById("emailmsg");
+            const ccrd = document.getElementById("ccrd").value;
+            const ccrdMsg = document.getElementById("ccrdmsg");
+            const cexp = document.getElementById("cexp").value;
+            const cexpMsg = document.getElementById("cexpmsg");
+
+            let cfname, clname, cphone, cemail, cccrd, ccexp;
+
+            if (fname.length === 0) {
+                fnameMsg.className = 'col-md-3';
+                fnameMsg.classList.add("text-danger");
+                fnameMsg.innerHTML = "<em>You did not enter your fname</em>";
+                cfname = false;
+            }
+            else {
+                fnameMsg.className = 'col-md-3';
+                fnameMsg.classList.add("text-success");
+                fnameMsg.innerHTML = "Valid";
+                cfname = true;
+            }
+
+            if (lname.length === 0) {
+                lnameMsg.className = 'col-md-3';
+                lnameMsg.classList.add("text-danger");
+                lnameMsg.innerHTML = "<em>You did not enter your lname</em>";
+                clname = false;
+            }
+            else {
+                lnameMsg.className = 'col-md-3';
+                lnameMsg.classList.add("text-success");
+                lnameMsg.innerHTML = "Valid";
+                clname = true;
+            }
+
+            if (phone.length === 0) {
+                phoneMsg.className = 'col-md-3';
+                phoneMsg.classList.add("text-danger");
+                phoneMsg.innerHTML = "<em>You did not enter your phone number</em>";
+                cphone = false;
+            }
+            else if (phone.length != 10) {
+                phoneMsg.className = 'col-md-3';
+                phoneMsg.classList.add("text-danger");
+                phoneMsg.innerHTML = "<em>Phone number should be 10 digits long</em>";
+                cphone = false;
+            }
+            else {
+                phoneMsg.className = 'col-md-3';
+                phoneMsg.classList.add("text-success");
+                phoneMsg.innerHTML = `Valid`;
+                cphone = true;
+            }
+
+            if (email.length === 0 || email.indexOf('@') == -1) {
+                emailMsg.className = 'col-md-3';
+                emailMsg.classList.add("text-danger");
+                emailMsg.innerHTML = "<em>Enter vaild email address.</em>";
+                cemail = false;
+            }
+            else {
+                emailMsg.className = 'col-md-3';
+                emailMsg.classList.add("text-success");
+                emailMsg.innerHTML = "Valid";
+                cemail = true;
+            }
+
+            if (ccrd.length === 0) {
+                ccrdMsg.className = 'col-md-3';
+                ccrdMsg.classList.add("text-danger");
+                ccrdMsg.innerHTML = "<em>Enter a vaild credit card number.</em>";
+                cccrd = false;
+            }
+            else {
+                ccrdMsg.className = 'col-md-3';
+                ccrdMsg.classList.add("text-success");
+                ccrdMsg.innerHTML = "Valid";
+                cccrd = true;
+            }
+
+            if (cexp === "" || isNaN(Date.parse(cexp))) {
+                cexpMsg.className = 'col-md-3';
+                cexpMsg.classList.add("text-danger");
+                cexpMsg.innerHTML = "<em>Enter a vaild date.</em>";
+                ccexp = false;
+            }
+            else {
+                cexpMsg.className = 'col-md-3';
+                cexpMsg.classList.add("text-success");
+                cexpMsg.innerHTML = "Valid";
+                ccexp = true;
+            }
+
+            if (cfname && clname && cemail && cphone && cccrd && ccexp) {
+                return true;
+            }
+            else {
+                event.preventDefault();
+                return false;
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
