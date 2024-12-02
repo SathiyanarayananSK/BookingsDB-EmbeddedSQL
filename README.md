@@ -1,4 +1,4 @@
-# 🏨 Room Booking Website  
+# 🏨 Room Booking Website  (Just completed the customer details part, Still WIP)
 
 Welcome to the **Room Booking Website**, a modern platform for managing room bookings with ease. This project highlights my expertise in full-stack web development and SQL, combining a responsive frontend with a robust backend and database integration.  
 
